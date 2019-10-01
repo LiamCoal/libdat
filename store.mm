@@ -31,12 +31,12 @@ int main(int argc, char const **argv) {
     for(unsigned long i = 0; i < [files count]; i++) {
         NSLog(@"Operating on %@", [files objectAtIndex: i]);
         [fh writeData: [NSData dataWithBytes:(void*)[[files objectAtIndex: i] UTF8String] length:11]];
-        int s = [[files objectAtIndex: i] intValue];
-        [fh writeData: [NSData dataWithBytes:(void*)&s length:sizeof(int)]];
         NSMutableString *str = [NSMutableString stringWithCapacity: [[files objectAtIndex: i] length] + [path length] + 1];
         [str appendString: path];
         [str appendString: @"/"];
         [str appendString: [files objectAtIndex: i]];
+        int s = [[[NSFileManager defaultManager] attributesOfItemAtPath:str error:NULL] fileSize];
+        [fh writeData: [NSData dataWithBytes:(void*)&s length:sizeof(int)]];
         NSData *d = [NSData dataWithContentsOfFile: str];
         if(d == nil) {
             NSLog(@"Failed to initialize NSData for file %@. (Is it a dir?)", str);
