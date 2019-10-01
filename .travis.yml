@@ -1,0 +1,17 @@
+language: c++
+matrix:
+  include:
+  - os: linux
+    dist: bionic
+    sudo: true
+    compiler: gcc
+    addons:
+      apt:
+        packages:
+          - gcc
+          - gobjc++
+          - gnustep
+          - cmake
+          - make
+          - gnustep-devel
+script: travis/build.sh
