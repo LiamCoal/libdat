@@ -13,4 +13,5 @@ matrix:
           - gnustep
           - cmake
           - make
+          - gnustep-devel
 script: travis/build.sh
