@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.12)
 project(dat)
 
 include_directories(/usr/include/GNUstep /usr/lib/GNUstep/System/Library/Headers /usr/include)
