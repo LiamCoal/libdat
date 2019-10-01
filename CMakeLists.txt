@@ -3,7 +3,6 @@ project(dat)
 
 include_directories(/usr/include/GNUstep /usr/lib/GNUstep/System/Library/Headers /usr/include)
 add_compile_options("-fconstant-string-class=NSConstantString" "-Wall" "-g")
-add_link_options("-g")
 link_directories(${CMAKE_SOURCE_DIR}/build/)
 link_libraries(gnustep-base objc)
 add_executable(dat_store store.mm)
