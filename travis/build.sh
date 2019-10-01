@@ -1,8 +1,9 @@
 #!/bin/bash
 
-cmake -S . -B build
-cmake --build build
-build/dat_store test.dat build
-build/dat_read test.dat Makefile
-build/dat_store_libimpl test.dat build
-build/dat_read_libimpl test.dat Makefile
+cd ~/build/libdat
+cmake -S ~/build/libdat -B ~/build/libdat/build
+cmake --build ~/build/libdat/build
+~/build/libdat/build/dat_store test.dat build
+~/build/libdat/build/dat_read test.dat Makefile
+~/build/libdat/build/dat_store_libimpl test.dat build
+~/build/libdat/build/dat_read_libimpl test.dat Makefile
